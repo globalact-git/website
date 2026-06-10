@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Globalact — Agence SEA Performance | Pure Player Google Ads</title>
+
+<!-- ─── SEO ─── -->
+<meta name="description" content="Globalact, agence SEA Pure Player spécialisée Google Ads (Search, Shopping, Performance Max). Setup en 7 jours garanti, tracking avancé, ROAS x4.3 moyen. Appel découverte gratuit.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.globalact.fr/">
+
+<!-- ─── Open Graph (partage Facebook / LinkedIn) ─── -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Globalact">
+<meta property="og:title" content="Globalact — Agence SEA Performance | Pure Player Google Ads">
+<meta property="og:description" content="Setup en 7 jours garanti, tracking avancé, ROAS x4.3 moyen. Vos campagnes Google Ads enfin rentables.">
+<meta property="og:url" content="https://www.globalact.fr/">
+<meta property="og:image" content="https://www.globalact.fr/og-image.png">
+
+<!-- ─── Police (preconnect pour accélérer le chargement) ─── -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+
+<!-- Tailwind CSS compilé (purgé + minifié) — voir build.sh pour régénérer -->
+<link rel="stylesheet" href="styles.css">
+
+<style>
+  /* ─── Base globale ─── */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #fff;
+    color: #1C1F1D;
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── Effet souligné NAV (pseudo-éléments) ─── */
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #EA5B13;
+    transition: width .2s ease;
+  }
+  .nav-link:hover::after { width: 100%; }
+
+  /* ─── HERO : décorations radiales & cercles ─── */
+  .hero-radial::before {
+    content: '';
+    position: absolute;
+    top: -160px;
+    right: -160px;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(234,91,19,0.11) 0%, transparent 68%);
+    pointer-events: none;
+    z-index: 3;
+  }
+  .hero-curve {
+    position: absolute;
+    bottom: -70px;
+    left: -70px;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(234,91,19,0.12);
+    pointer-events: none;
+    z-index: 3;
+  }
+  .hero-curve::after {
+    content: '';
+    position: absolute;
+    inset: 54px;
+    border: 1px solid rgba(114,127,124,0.08);
+    border-radius: 50%;
+  }
+
+  /* ─── HERO eyebrow trait orange ─── */
+  .hero-eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: #EA5B13;
+    display: block;
+  }
+
+  /* ─── Eyebrow sections ─── */
+  .ga-eyebrow::before {
+    content: '';
+    width: 22px;
+    height: 2px;
+    background: #EA5B13;
+    border-radius: 1px;
+  }
+
+  /* ─── btn-ghost-dark : flèche après ─── */
+  .btn-ghost-dark::after {
+    content: '→';
+    color: #EA5B13;
+  }
+
+  /* ─── pos-tag : flèche avant ─── */
+  .pos-tag::before { content: '→'; }
+
+  /* ─── fear-q : guillemets ─── */
+  .fear-q::before { content: '"'; color: #EA5B13; font-size: 18px; margin-right: 2px; }
+  .fear-q::after  { content: '"'; color: #EA5B13; font-size: 18px; margin-left: 2px; }
+
+  /* ─── pack-features : checkmark ─── */
+  .pack-features li::before {
+    content: '✓';
+    color: #EA5B13;
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .pack-features li.na { opacity: .3; }
+  .pack-features li.na::before { content: '—'; color: rgba(255,255,255,0.4); }
+
+  /* ─── pack-divider : ligne après ─── */
+  .pack-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  /* ─── Process : ligne horizontale (desktop) ─── */
+  .proc-line {
+    position: absolute;
+    top: 27px;
+    left: 36px;
+    right: 36px;
+    height: 1px;
+    background: linear-gradient(90deg, #EA5B13, rgba(234,91,19,0.08));
+  }
+
+  /* ─── Hero slider ─── */
+  .hero-slider-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  /* ─── Pack card featured : CTA toujours plein ─── */
+  .pack-card.featured .pack-cta {
+    background: #EA5B13;
+    color: #fff;
+    border-color: #EA5B13;
+  }
+
+  /* ─── Stat cards : bordures gauche alternées ─── */
+  .stat-card:nth-child(1) { border-left: 3px solid #EA5B13; }
+  .stat-card:nth-child(2) { border-left: 3px solid #727F7C; }
+  .stat-card:nth-child(3) { border-left: 3px solid #EA5B13; }
+
+  /* ─── Mock fallback : activation si image absente ─── */
+  .screenshot-fallback { display: none; }
+
+  /* ─── Responsive : cache la ligne process sur mobile ─── */
+  @media (max-width: 1023px) {
+    .proc-line { display: none; }
+  }
+</style>
+
+<!-- ─── Données structurées (Schema.org) ─── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Globalact",
+  "description": "Agence SEA Performance Pure Player spécialisée Google Ads : Search, Shopping, Performance Max et tracking avancé.",
+  "url": "https://www.globalact.fr/",
+  "email": "hello@globalact.fr",
+  "image": "https://www.globalact.fr/og-image.png",
+  "priceRange": "À partir de 250 € / mois",
+  "areaServed": "FR",
+  "serviceType": ["Google Ads Management", "Google Shopping", "Performance Max", "Tracking & GA4", "Microsoft Ads"]
+}
+</script>
+</head>
+
+<body class="font-sans font-light text-ga-txt bg-white antialiased w-full overflow-x-hidden">
+
+<!-- ═════════════ NAV ═════════════ -->
+<nav class="w-full max-w-[1440px] mx-auto flex items-center justify-between px-6 sm:px-8 md:px-12 lg:px-[72px] h-[76px] border-b border-black/5 bg-white/95 backdrop-blur-[10px] sticky top-0 z-[100] shadow-ga-nav">
+  <a href="/" class="flex items-center no-underline transition-opacity duration-200 hover:opacity-90" aria-label="Accueil Globalact">
+    <img src="Logo Globalact.svg" alt="Globalact — Agence SEA Performance" width="150" height="36" loading="eager" decoding="async" fetchpriority="high" class="h-9 w-auto block">
+  </a>
+
+  <ul class="hidden lg:flex list-none gap-9 items-center h-full">
+    <li><a href="#positionnement" class="nav-link block text-[13px] font-medium tracking-[0.05em] uppercase text-ga-txt-mid no-underline py-1.5 transition-colors duration-200 hover:text-ga-ink">Méthode</a></li>
+    <li><a href="#offres" class="nav-link block text-[13px] font-medium tracking-[0.05em] uppercase text-ga-txt-mid no-underline py-1.5 transition-colors duration-200 hover:text-ga-ink">Offres</a></li>
+    <li><a href="#process" class="nav-link block text-[13px] font-medium tracking-[0.05em] uppercase text-ga-txt-mid no-underline py-1.5 transition-colors duration-200 hover:text-ga-ink">Processus</a></li>
+    <li><a href="#cta" class="nav-link block text-[13px] font-medium tracking-[0.05em] uppercase text-ga-txt-mid no-underline py-1.5 transition-colors duration-200 hover:text-ga-ink">Contact</a></li>
+  </ul>
+
+  <div class="flex items-center gap-4 sm:gap-7">
+    <a href="mailto:hello@globalact.fr" class="hidden md:inline-block text-[13px] font-normal text-ga-txt-mid no-underline transition-colors duration-200 hover:text-ga-orange">hello@globalact.fr</a>
+    <a href="#cta" class="inline-flex items-center gap-2 bg-ga-orange text-white px-4 sm:px-6 py-3 text-[13px] font-semibold no-underline rounded transition-all duration-200 hover:bg-[#d45110] hover:-translate-y-px hover:shadow-ga-btn">Appel gratuit →</a>
+  </div>
+</nav>
+
+<!-- ═════════════ ① HERO + CAROUSEL ═════════════ -->
+<section class="hero-radial relative w-full max-w-[1440px] mx-auto min-h-[820px] overflow-hidden bg-ga-ink p-0">
+
+  <div class="hero-slider-track">
+
+    <!-- ─── SLIDE 1 ─── -->
+    <div class="hero-slide min-w-full w-full min-h-[820px] grid grid-cols-1 lg:grid-cols-[1fr_480px] items-center px-6 sm:px-8 md:px-12 lg:px-[72px] pt-20 pb-20 lg:pt-[110px] lg:pb-[88px] flex-shrink-0 relative box-border gap-12 lg:gap-0">
+      <div class="max-w-[580px] relative z-[2]">
+        <div class="hero-eyebrow inline-flex items-center gap-2.5 text-[11px] tracking-[0.2em] uppercase text-ga-orange mb-7">Agence SEA Performance · Pure Player Google Ads</div>
+        <h1 class="text-[44px] sm:text-[52px] lg:text-[64px] font-semibold leading-[1.06] tracking-[-0.035em] text-white mb-[26px]">Vos campagnes<br>Google Ads ne<br>sont pas <em class="not-italic text-ga-orange">rentables.</em><br>On sait pourquoi.</h1>
+        <p class="text-base leading-[1.8] text-white/55 max-w-[460px] mb-12 border-l-[3px] border-ga-orange pl-5">Tracking défaillant, structure bancale, pilotage absent. Le problème n'est pas votre budget — c'est l'infrastructure derrière. On la reconstruit.</p>
+        <div class="flex flex-wrap gap-5 items-center">
+          <a href="#cta" class="inline-block bg-ga-orange text-white px-9 py-[15px] text-sm font-semibold tracking-[0.02em] no-underline rounded-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-ga-prim">Diagnostiquer mon compte →</a>
+          <a href="#positionnement" class="btn-ghost-dark inline-flex items-center gap-2 text-white/50 text-sm no-underline transition-colors duration-200 hover:text-white">Comprendre notre approche</a>
+        </div>
+      </div>
+      <div class="flex flex-col gap-[3px] lg:pl-[52px] relative z-[2]">
+        <div class="stat-card bg-white/[0.03] border border-white/[0.06] px-[30px] py-7 flex items-end gap-[18px] transition-all duration-300 hover:border-ga-orange/40 hover:bg-ga-orange/[0.08]">
+          <div class="text-[50px] font-semibold tracking-[-0.05em] text-white leading-none whitespace-nowrap">×<span class="text-ga-orange">4.3</span></div>
+          <div class="text-[13px] text-white/50 leading-[1.5] pb-1 flex-1">ROAS moyen<br>sur nos comptes actifs</div>
+        </div>
+        <div class="stat-card bg-white/[0.03] border border-white/[0.06] px-[30px] py-7 flex items-end gap-[18px] transition-all duration-300 hover:border-ga-orange/40 hover:bg-ga-orange/[0.08]">
+          <div class="text-[50px] font-semibold tracking-[-0.05em] text-white leading-none whitespace-nowrap"><span class="text-ga-orange">1.8</span>M€</div>
+          <div class="text-[13px] text-white/50 leading-[1.5] pb-1 flex-1">CA généré via Google Ads<br>sur les 12 derniers mois</div>
+        </div>
+        <div class="stat-card bg-white/[0.03] border border-white/[0.06] px-[30px] py-7 flex items-end gap-[18px] transition-all duration-300 hover:border-ga-orange/40 hover:bg-ga-orange/[0.08]">
+          <div class="text-[50px] font-semibold tracking-[-0.05em] text-white leading-none whitespace-nowrap">−<span class="text-ga-orange">37</span>%</div>
+          <div class="text-[13px] text-white/50 leading-[1.5] pb-1 flex-1">Réduction du CPA moyen<br>après 60 jours de pilotage</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── SLIDE 2 ─── -->
+    <div class="hero-slide min-w-full w-full min-h-[820px] grid grid-cols-1 lg:grid-cols-[1fr_480px] items-center px-6 sm:px-8 md:px-12 lg:px-[72px] pt-20 pb-20 lg:pt-[110px] lg:pb-[88px] flex-shrink-0 relative box-border gap-12 lg:gap-0">
+      <div class="max-w-[580px] relative z-[2]">
+        <div class="hero-eyebrow inline-flex items-center gap-2.5 text-[11px] tracking-[0.2em] uppercase text-ga-orange mb-7">Preuve à l'appui</div>
+        <h2 class="text-[44px] sm:text-[52px] lg:text-[64px] font-semibold leading-[1.06] tracking-[-0.035em] text-white mb-[26px]">Vos campagnes<br><em class="not-italic text-ga-orange">scalent.</em><br>Votre acquisition<br>devient rentable.</h2>
+        <p class="text-base leading-[1.8] text-white/55 max-w-[460px] mb-12 border-l-[3px] border-ga-orange pl-5">Nous structurons vos campagnes <strong class="font-medium">Search, Shopping et PMax</strong> pour générer des résultats concrets. Voici le type d'infrastructure que nous déployons pour nos clients.</p>
+        <div class="flex flex-wrap gap-5 items-center">
+          <a href="#cta" class="inline-block bg-ga-orange text-white px-9 py-[15px] text-sm font-semibold tracking-[0.02em] no-underline rounded-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-ga-prim">Réserver mon appel gratuit</a>
+          <a href="#offres" class="btn-ghost-dark inline-flex items-center gap-2 text-white/50 text-sm no-underline transition-colors duration-200 hover:text-white">Voir les packs</a>
+        </div>
+      </div>
+      <div class="flex flex-col gap-[3px] lg:pl-[52px] relative z-[2]">
+        <div class="w-full bg-[#161817] border border-white/[0.07] rounded-md overflow-hidden shadow-ga-mock lg:ml-3">
+          <div class="bg-[#1c1f1d] px-4 py-3 flex items-center gap-1.5 border-b border-white/[0.04]">
+            <span class="w-2 h-2 rounded-full bg-white/15"></span>
+            <span class="w-2 h-2 rounded-full bg-white/15"></span>
+            <span class="w-2 h-2 rounded-full bg-white/15"></span>
+            <div class="ml-3 text-[11px] text-white/35 tracking-[0.02em]">Google Ads — Vue d'ensemble</div>
+          </div>
+          <div class="relative bg-[#121413] min-h-[310px] flex flex-col">
+            <img src="google-ads-performance.png" alt="Tableau de bord de performances Google Ads géré par Globalact" width="1200" height="700" loading="lazy" decoding="async" class="w-full h-auto block" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+
+            <div class="screenshot-fallback flex-col p-7 h-full flex-1 justify-between">
+              <div class="flex justify-between border-b border-white/[0.04] pb-5 mb-2.5">
+                <div>
+                  <span class="block text-[10px] text-white/30 uppercase tracking-[0.06em] mb-1.5">Clics</span>
+                  <span class="text-xl font-semibold text-white flex items-center gap-1.5">24.5k <em class="not-italic text-[11px] text-[#22c55e] font-normal">+18%</em></span>
+                </div>
+                <div>
+                  <span class="block text-[10px] text-white/30 uppercase tracking-[0.06em] mb-1.5">Coût pub.</span>
+                  <span class="text-xl font-semibold text-white flex items-center gap-1.5">3.12k€</span>
+                </div>
+                <div>
+                  <span class="block text-[10px] text-white/30 uppercase tracking-[0.06em] mb-1.5">Conversions (ROAS 4.3)</span>
+                  <span class="text-xl font-semibold flex items-center gap-1.5 text-ga-orange">1.12k <em class="not-italic text-[11px] text-[#22c55e] font-normal">+42%</em></span>
+                </div>
+              </div>
+              <div class="flex-1 flex items-end pt-5">
+                <svg viewBox="0 0 400 120" class="w-full h-[120px] overflow-visible">
+                  <path d="M0,110 Q40,95 80,80 T160,85 T240,50 T320,35 T400,15" fill="none" stroke="#EA5B13" stroke-width="3" stroke-linecap="round"></path>
+                  <path d="M0,110 Q40,95 80,80 T160,85 T240,50 T320,35 T400,15 L400,120 L0,120 Z" fill="url(#grad)" opacity="0.15"></path>
+                  <defs>
+                    <linearGradient id="grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stop-color="#EA5B13"></stop>
+                      <stop offset="100%" stop-color="transparent"></stop>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── SLIDE 3 ─── -->
+    <div class="hero-slide min-w-full w-full min-h-[820px] grid grid-cols-1 lg:grid-cols-[1fr_480px] items-center px-6 sm:px-8 md:px-12 lg:px-[72px] pt-20 pb-20 lg:pt-[110px] lg:pb-[88px] flex-shrink-0 relative box-border gap-12 lg:gap-0">
+      <div class="max-w-[580px] relative z-[2]">
+        <div class="hero-eyebrow inline-flex items-center gap-2.5 text-[11px] tracking-[0.2em] uppercase text-ga-orange mb-7">Leviers de Croissance</div>
+        <h2 class="text-[44px] sm:text-[52px] lg:text-[64px] font-semibold leading-[1.06] tracking-[-0.035em] text-white mb-[26px]">Faites de Google<br>Ads votre <em class="not-italic text-ga-orange">moteur</em><br>de croissance.</h2>
+        <p class="text-base leading-[1.8] text-white/55 max-w-[460px] mb-12 border-l-[3px] border-ga-orange pl-5">Setup · Pilotage · Stratégie — Trois packs pour transformer votre budget publicitaire en machine à revenus. Résultats mesurables, transparence totale.</p>
+        <div class="flex flex-wrap gap-5 items-center">
+          <a href="#cta" class="inline-block bg-ga-orange text-white px-9 py-[15px] text-sm font-semibold tracking-[0.02em] no-underline rounded-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-ga-prim">Réserver mon appel gratuit</a>
+          <a href="#offres" class="btn-ghost-dark inline-flex items-center gap-2 text-white/50 text-sm no-underline transition-colors duration-200 hover:text-white">Voir les packs</a>
+        </div>
+      </div>
+      <div class="flex flex-col gap-[3px] lg:pl-[52px] relative z-[2]">
+        <div class="stat-card bg-white/[0.03] border border-white/[0.06] px-[30px] py-7 flex items-end gap-[18px] transition-all duration-300 hover:border-ga-orange/40 hover:bg-ga-orange/[0.08]">
+          <div class="text-[50px] font-semibold tracking-[-0.05em] text-white leading-none whitespace-nowrap">7<span class="text-ga-orange">j</span></div>
+          <div class="text-[13px] text-white/50 leading-[1.5] pb-1 flex-1">
+            <span class="block text-white text-sm font-semibold mb-0.5">Délai de setup</span>
+            garanti, chrono en main
+          </div>
+        </div>
+        <div class="stat-card bg-white/[0.03] border border-white/[0.06] px-[30px] py-7 flex items-end gap-[18px] transition-all duration-300 hover:border-ga-orange/40 hover:bg-ga-orange/[0.08]">
+          <div class="text-[50px] font-semibold tracking-[-0.05em] text-white leading-none whitespace-nowrap">100<span class="text-ga-orange">%</span></div>
+          <div class="text-[13px] text-white/50 leading-[1.5] pb-1 flex-1">
+            <span class="block text-white text-sm font-semibold mb-0.5">Tracking garanti</span>
+            dès le premier jour
+          </div>
+        </div>
+        <div class="stat-card bg-white/[0.03] border border-white/[0.06] px-[30px] py-7 flex items-end gap-[18px] transition-all duration-300 hover:border-ga-orange/40 hover:bg-ga-orange/[0.08]">
+          <div class="text-[50px] font-semibold tracking-[-0.05em] text-white leading-none whitespace-nowrap">3</div>
+          <div class="text-[13px] text-white/50 leading-[1.5] pb-1 flex-1">
+            <span class="block text-white text-sm font-semibold mb-0.5">Packs adaptés</span>
+            dès 250 € / mois
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Contrôles du Slider -->
+  <div class="absolute bottom-10 left-6 sm:left-8 md:left-12 lg:left-[72px] flex items-center gap-6 z-10">
+    <div class="flex gap-2">
+      <button class="hero-arrow prev bg-transparent border border-white/15 text-white/60 w-[38px] h-[38px] flex items-center justify-center cursor-pointer rounded-sm text-base transition-all duration-200 select-none hover:border-ga-orange hover:text-white hover:bg-ga-orange/10" aria-label="Précédent">←</button>
+      <button class="hero-arrow next bg-transparent border border-white/15 text-white/60 w-[38px] h-[38px] flex items-center justify-center cursor-pointer rounded-sm text-base transition-all duration-200 select-none hover:border-ga-orange hover:text-white hover:bg-ga-orange/10" aria-label="Suivant">→</button>
+    </div>
+    <div class="flex gap-2.5">
+      <span class="hero-dot active w-2 h-2 rounded-full bg-white/25 cursor-pointer transition-all duration-300"></span>
+      <span class="hero-dot w-2 h-2 rounded-full bg-white/25 cursor-pointer transition-all duration-300"></span>
+      <span class="hero-dot w-2 h-2 rounded-full bg-white/25 cursor-pointer transition-all duration-300"></span>
+    </div>
+  </div>
+
+  <div class="hero-curve"></div>
+</section>
+
+<style>
+  /* ─── État actif des dots ─── */
+  .hero-dot.active {
+    background: #EA5B13;
+    transform: scale(1.2);
+    box-shadow: 0 0 8px #EA5B13;
+  }
+</style>
+
+<!-- ═════════════ ② POSITIONNEMENT ═════════════ -->
+<section id="positionnement" class="w-full max-w-[1440px] mx-auto px-6 sm:px-8 md:px-12 lg:px-[72px] py-16 lg:py-24 bg-ga-off">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 mb-12 lg:mb-[60px] items-end">
+    <div>
+      <div class="ga-eyebrow text-[11px] tracking-[0.2em] uppercase text-ga-orange mb-[18px] font-medium flex items-center gap-2.5">Notre positionnement</div>
+      <h2 class="text-[30px] sm:text-[36px] lg:text-[44px] font-semibold tracking-[-0.035em] leading-[1.08] text-ga-ink">100% Google Ads.<br>Zéro <em class="not-italic text-ga-orange">distraction.</em></h2>
+    </div>
+    <p class="text-[15px] leading-[1.8] text-ga-txt-mid">Nous concentrons toute notre expertise sur Google Ads : Search, Shopping, Performance Max et tracking avancé. Chaque euro investi est piloté pour générer une croissance rentable et mesurable.</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2px]">
+    <!-- Pure Player SEA -->
+    <div class="group bg-ga-off px-10 py-12 relative overflow-hidden transition-colors duration-300 border-t-[3px] border-transparent hover:bg-ga-off2 hover:border-t-ga-orange">
+      <div class="w-11 h-11 rounded-lg bg-ga-orange/[0.08] border border-ga-orange/[0.15] flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-ga-orange/[0.14]">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EA5B13" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/>
+        </svg>
+      </div>
+      <h3 class="text-lg font-semibold text-ga-ink mb-3 tracking-[-0.02em]">Pure Player SEA</h3>
+      <p class="text-sm text-ga-txt-mid leading-[1.75]">Search, Shopping, Performance Max — notre expertise est verticale, profonde et actualisée en permanence.</p>
+      <span class="pos-tag inline-flex items-center gap-1.5 mt-[18px] text-xs font-semibold text-ga-orange tracking-[0.04em]">Spécialisation absolue</span>
+      <div class="absolute -bottom-3 right-3 text-[100px] font-semibold leading-none text-ga-orange/[0.05] tracking-[-0.05em] pointer-events-none">01</div>
+    </div>
+    <!-- Data-first -->
+    <div class="group bg-ga-off px-10 py-12 relative overflow-hidden transition-colors duration-300 border-t-[3px] border-transparent hover:bg-ga-off2 hover:border-t-ga-orange">
+      <div class="w-11 h-11 rounded-lg bg-ga-orange/[0.08] border border-ga-orange/[0.15] flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-ga-orange/[0.14]">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EA5B13" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+          <path d="M2 20h20"/>
+        </svg>
+      </div>
+      <h3 class="text-lg font-semibold text-ga-ink mb-3 tracking-[-0.02em]">Data-first, toujours</h3>
+      <p class="text-sm text-ga-txt-mid leading-[1.75]">Chaque décision est prise sur des données fiables. GTM, GA4, GMC configurés aux meilleures pratiques.</p>
+      <span class="pos-tag inline-flex items-center gap-1.5 mt-[18px] text-xs font-semibold text-ga-orange tracking-[0.04em]">Zéro décision à l'aveugle</span>
+      <div class="absolute -bottom-3 right-3 text-[100px] font-semibold leading-none text-ga-orange/[0.05] tracking-[-0.05em] pointer-events-none">02</div>
+    </div>
+    <!-- Pilotage continu -->
+    <div class="group bg-ga-off px-10 py-12 relative overflow-hidden transition-colors duration-300 border-t-[3px] border-transparent hover:bg-ga-off2 hover:border-t-ga-orange">
+      <div class="w-11 h-11 rounded-lg bg-ga-orange/[0.08] border border-ga-orange/[0.15] flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-ga-orange/[0.14]">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EA5B13" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2a10 10 0 1 0 10 10"/><polyline points="12 6 12 12 16 14"/><path d="M22 2l-5 5M17 2h5v5"/>
+        </svg>
+      </div>
+      <h3 class="text-lg font-semibold text-ga-ink mb-3 tracking-[-0.02em]">Pilotage continu</h3>
+      <p class="text-sm text-ga-txt-mid leading-[1.75]">Un Account Manager dédié, joignable, qui parle business. Dashboard live, reporting hebdo, calls structurés.</p>
+      <span class="pos-tag inline-flex items-center gap-1.5 mt-[18px] text-xs font-semibold text-ga-orange tracking-[0.04em]">Transparence totale</span>
+      <div class="absolute -bottom-3 right-3 text-[100px] font-semibold leading-none text-ga-orange/[0.05] tracking-[-0.05em] pointer-events-none">03</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ ③ COMPRÉHENSION ═════════════ -->
+<section id="comprendre" class="w-full max-w-[1440px] mx-auto px-6 sm:px-8 md:px-12 lg:px-[72px] py-16 lg:py-24 bg-white">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 mb-12 lg:mb-[60px] items-end">
+    <div>
+      <div class="ga-eyebrow text-[11px] tracking-[0.2em] uppercase text-ga-orange mb-[18px] font-medium flex items-center gap-2.5">Ce que nous faisons concrètement</div>
+      <h2 class="text-[30px] sm:text-[36px] lg:text-[44px] font-semibold tracking-[-0.035em] leading-[1.08] text-ga-ink">Ce n'est pas une<br>question de budget.<br>C'est une question<br>de <em class="not-italic text-ga-orange">méthode.</em></h2>
+    </div>
+    <p class="text-[15px] leading-[1.8] text-ga-txt-mid">Vous avez investi. Le budget part. Mais les conversions ne suivent pas. Le problème est systémique — et donc résolvable. Voici exactement comment on intervient.</p>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-[2px]">
+    <div class="px-8 lg:px-14 py-12 lg:py-16 bg-ga-ink flex flex-col justify-center">
+      <div class="ga-eyebrow text-[11px] tracking-[0.2em] uppercase text-ga-orange/80 mb-[18px] font-medium flex items-center gap-2.5">Notre stack d'intervention</div>
+      <h3 class="text-[22px] font-semibold text-white tracking-[-0.02em] leading-[1.3] mb-4">Trois couches.<br>Un seul objectif :<br>votre <em class="not-italic text-ga-orange">rentabilité.</em></h3>
+      <p class="text-sm text-white/45 leading-[1.75] mb-7">Tracking → Structure → Stratégie. Dans cet ordre, sans jamais en sauter une. C'est la différence entre une agence qui optimise et une agence qui construit.</p>
+      <a href="#cta" class="self-start inline-block bg-ga-orange text-white px-9 py-[15px] text-sm font-semibold tracking-[0.02em] no-underline rounded-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-ga-prim">Analyser mon compte →</a>
+    </div>
+    <div class="flex flex-col gap-0">
+
+      <!-- ① Tracking & Infrastructure -->
+      <div class="group relative bg-ga-off px-8 py-7 border-b border-ga-rule flex items-start gap-5 transition-all duration-200 hover:bg-ga-off2 overflow-hidden">
+        <!-- Numéro décoratif fond -->
+        <div class="absolute right-6 top-1/2 -translate-y-1/2 text-[64px] font-semibold leading-none text-ga-orange/[0.04] tracking-[-0.04em] pointer-events-none select-none">01</div>
+        <!-- Icône -->
+        <div class="flex-shrink-0 w-9 h-9 rounded-md bg-white border border-ga-rule flex items-center justify-center transition-all duration-200 group-hover:border-ga-orange/30 group-hover:bg-ga-orange/[0.04] mt-0.5">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EA5B13" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </div>
+        <!-- Contenu -->
+        <div class="flex-1 min-w-0 relative z-[1]">
+          <div class="flex items-center gap-2.5 mb-1.5">
+            <h4 class="text-[14px] font-semibold text-ga-ink tracking-[-0.01em]">Tracking &amp; Infrastructure</h4>
+            <span class="hidden sm:inline-block text-[9px] tracking-[0.1em] uppercase font-semibold text-ga-orange bg-ga-orange/[0.08] px-2 py-0.5 rounded-sm flex-shrink-0">GTM · GA4 · GMC</span>
+          </div>
+          <p class="text-[13px] text-ga-txt-mid leading-[1.65]">GTM + GA4 + Merchant Center configurés ligne par ligne. Chaque conversion tracée et vérifiée. Vous cessez d'optimiser sur du bruit.</p>
+        </div>
+        <!-- Barre accent gauche -->
+        <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-transparent transition-colors duration-200 group-hover:bg-ga-orange rounded-r-sm"></div>
+      </div>
+
+      <!-- ② Structure des campagnes -->
+      <div class="group relative bg-ga-off px-8 py-7 border-b border-ga-rule flex items-start gap-5 transition-all duration-200 hover:bg-ga-off2 overflow-hidden">
+        <div class="absolute right-6 top-1/2 -translate-y-1/2 text-[64px] font-semibold leading-none text-ga-orange/[0.04] tracking-[-0.04em] pointer-events-none select-none">02</div>
+        <div class="flex-shrink-0 w-9 h-9 rounded-md bg-white border border-ga-rule flex items-center justify-center transition-all duration-200 group-hover:border-ga-orange/30 group-hover:bg-ga-orange/[0.04] mt-0.5">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EA5B13" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M17.5 14v7M14 17.5h7"/>
+          </svg>
+        </div>
+        <div class="flex-1 min-w-0 relative z-[1]">
+          <div class="flex items-center gap-2.5 mb-1.5">
+            <h4 class="text-[14px] font-semibold text-ga-ink tracking-[-0.01em]">Structure des campagnes</h4>
+            <span class="hidden sm:inline-block text-[9px] tracking-[0.1em] uppercase font-semibold text-ga-orange bg-ga-orange/[0.08] px-2 py-0.5 rounded-sm flex-shrink-0">Search · PMax</span>
+          </div>
+          <p class="text-[13px] text-ga-txt-mid leading-[1.65]">Search, Shopping, PMax architéctés pour scaler. Budget alloué là où il génère le plus de retour. Fini le gaspillage structurel.</p>
+        </div>
+        <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-transparent transition-colors duration-200 group-hover:bg-ga-orange rounded-r-sm"></div>
+      </div>
+
+      <!-- ③ Stratégie transversale -->
+      <div class="group relative bg-ga-off px-8 py-7 border-b border-ga-rule flex items-start gap-5 transition-all duration-200 hover:bg-ga-off2 overflow-hidden">
+        <div class="absolute right-6 top-1/2 -translate-y-1/2 text-[64px] font-semibold leading-none text-ga-orange/[0.04] tracking-[-0.04em] pointer-events-none select-none">03</div>
+        <div class="flex-shrink-0 w-9 h-9 rounded-md bg-white border border-ga-rule flex items-center justify-center transition-all duration-200 group-hover:border-ga-orange/30 group-hover:bg-ga-orange/[0.04] mt-0.5">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EA5B13" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/>
+          </svg>
+        </div>
+        <div class="flex-1 min-w-0 relative z-[1]">
+          <div class="flex items-center gap-2.5 mb-1.5">
+            <h4 class="text-[14px] font-semibold text-ga-ink tracking-[-0.01em]">Stratégie transversale</h4>
+            <span class="hidden sm:inline-block text-[9px] tracking-[0.1em] uppercase font-semibold text-ga-orange bg-ga-orange/[0.08] px-2 py-0.5 rounded-sm flex-shrink-0">Funnel · UX</span>
+          </div>
+          <p class="text-[13px] text-ga-txt-mid leading-[1.65]">Funnel, audience, UX, marché — Google Ads intégré à votre acquisition globale. CPA cible et ROAS co-définis avant de dépenser un euro.</p>
+        </div>
+        <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-transparent transition-colors duration-200 group-hover:bg-ga-orange rounded-r-sm"></div>
+      </div>
+
+      <!-- ④ Pilotage & Croissance -->
+      <div class="group relative bg-ga-off px-8 py-7 flex items-start gap-5 transition-all duration-200 hover:bg-ga-off2 overflow-hidden">
+        <div class="absolute right-6 top-1/2 -translate-y-1/2 text-[64px] font-semibold leading-none text-ga-orange/[0.04] tracking-[-0.04em] pointer-events-none select-none">04</div>
+        <div class="flex-shrink-0 w-9 h-9 rounded-md bg-white border border-ga-rule flex items-center justify-center transition-all duration-200 group-hover:border-ga-orange/30 group-hover:bg-ga-orange/[0.04] mt-0.5">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EA5B13" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+        </div>
+        <div class="flex-1 min-w-0 relative z-[1]">
+          <div class="flex items-center gap-2.5 mb-1.5">
+            <h4 class="text-[14px] font-semibold text-ga-ink tracking-[-0.01em]">Pilotage &amp; Croissance</h4>
+            <span class="hidden sm:inline-block text-[9px] tracking-[0.1em] uppercase font-semibold text-white bg-ga-orange px-2 py-0.5 rounded-sm flex-shrink-0">Continu</span>
+          </div>
+          <p class="text-[13px] text-ga-txt-mid leading-[1.65]">Optimisation continue, reporting hebdo, calls dédiés. Votre ROAS progresse chaque mois. Transparence totale, sans courir après nous.</p>
+        </div>
+        <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-transparent transition-colors duration-200 group-hover:bg-ga-orange rounded-r-sm"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ ④ PEURS ═════════════ -->
+<style>
+  /* ═══ FAQ ACCORDION ═══ */
+  .faq-item {
+    border-bottom: 1px solid #E6E8E5;
+    overflow: hidden;
+  }
+  .faq-item:first-child { border-top: 1px solid #E6E8E5; }
+
+  .faq-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 22px 0;
+    cursor: pointer;
+    background: none;
+    border: none;
+    text-align: left;
+    transition: color 0.2s ease;
+  }
+  .faq-trigger:hover .faq-q-text { color: #EA5B13; }
+
+  .faq-q-text {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1C1F1D;
+    line-height: 1.3;
+    tracking: -0.01em;
+    transition: color 0.2s ease;
+    flex: 1;
+  }
+
+  /* Icône +/− */
+  .faq-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid #E6E8E5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.3s ease;
+    color: #727F7C;
+  }
+  .faq-item.open .faq-icon {
+    background: #EA5B13;
+    border-color: #EA5B13;
+    color: #fff;
+    transform: rotate(45deg);
+  }
+
+  /* Réponse animée */
+  .faq-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .faq-item.open .faq-body {
+    grid-template-rows: 1fr;
+  }
+  .faq-body-inner {
+    overflow: hidden;
+  }
+  .faq-answer {
+    padding-bottom: 22px;
+    font-size: 13.5px;
+    color: #727F7C;
+    line-height: 1.75;
+    max-width: 680px;
+  }
+  .faq-answer strong { color: #1C1F1D; font-weight: 500; }
+</style>
+
+<section id="peurs" class="w-full max-w-[1440px] mx-auto px-6 sm:px-8 md:px-12 lg:px-[72px] py-16 lg:py-24 bg-ga-off">
+
+  <div class="grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-12 lg:gap-24 items-start">
+
+    <!-- Colonne gauche : titre fixe -->
+    <div class="lg:sticky lg:top-[100px]">
+      <div class="ga-eyebrow text-[11px] tracking-[0.2em] uppercase text-ga-orange mb-[18px] font-medium flex items-center gap-2.5">Vos doutes, nos réponses</div>
+      <h2 class="text-[30px] sm:text-[36px] lg:text-[40px] font-semibold tracking-[-0.035em] leading-[1.08] text-ga-ink mb-5">On a entendu<br>Vos <em class="not-italic text-ga-orange">objections.</em></h2>
+      <p class="text-[14px] leading-[1.8] text-ga-txt-mid">Des réponses directes, sans langue de bois. C'est comme ça qu'on travaille.</p>
+    </div>
+
+    <!-- Colonne droite : FAQ accordion -->
+    <div class="faq-list">
+
+      <div class="faq-item open">
+        <button class="faq-trigger" onclick="toggleFaq(this)">
+          <span class="faq-q-text">C'est trop cher pour mon budget actuel.</span>
+          <span class="faq-icon">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
+          </span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-answer">Nos packs démarrent à un niveau pensé pour les structures qui lancent. <strong>Un seul client supplémentaire par mois suffit souvent à couvrir l'investissement.</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)">
+          <span class="faq-q-text">J'ai déjà une agence qui gère mes campagnes.</span>
+          <span class="faq-icon">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
+          </span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-answer">Demandez-leur un accès live à vos données et la date du dernier audit tracking. <strong>Si vous n'avez pas de réponse immédiate, vous méritez mieux.</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Combien de temps avant de voir des résultats&nbsp;?</span>
+          <span class="faq-icon">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
+          </span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-answer">L'infrastructure est opérationnelle à J+7, garanti. <strong>Les premières optimisations significatives apparaissent entre J+30 et J+60.</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Et si les résultats ne sont pas au rendez-vous&nbsp;?</span>
+          <span class="faq-icon">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
+          </span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-answer">On co-définit vos KPI avant de commencer — ROAS cible, CPA maximum. <strong>Vous avez un accès permanent au dashboard.</strong></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<script>
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  // Ferme tous
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  // Ouvre celui-ci si était fermé
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+
+<!-- ═════════════ ⑤ PACKS ═════════════ -->
+<style>
+  /* ─── Cards offres améliorées ─── */
+  .offers-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    align-items: stretch;
+  }
+  @media (min-width: 768px) {
+    .offers-grid {
+      grid-template-columns: repeat(3, 1fr);
+      align-items: end;
+    }
+  }
+
+  .offer-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 36px 32px 32px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .offer-card:hover {
+    border-color: rgba(234,91,19,0.35);
+    background: rgba(234,91,19,0.04);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+  }
+
+  /* Carte du milieu : mise en avant */
+  .offer-card.featured {
+    background: rgba(234,91,19,0.07);
+    border: 1px solid rgba(234,91,19,0.4);
+    border-radius: 12px;
+    padding: 44px 36px 38px;
+    box-shadow: 0 0 0 1px rgba(234,91,19,0.15), 0 20px 60px rgba(234,91,19,0.2), 0 40px 80px rgba(0,0,0,0.5);
+    transform: translateY(-10px);
+    z-index: 2;
+  }
+  .offer-card.featured:hover {
+    transform: translateY(-14px);
+    box-shadow: 0 0 0 1px rgba(234,91,19,0.25), 0 28px 70px rgba(234,91,19,0.25), 0 50px 100px rgba(0,0,0,0.55);
+    border-color: rgba(234,91,19,0.6);
+    background: rgba(234,91,19,0.10);
+  }
+
+  /* Badge top de la carte featured */
+  .offer-card.featured::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 13px;
+    background: linear-gradient(135deg, rgba(234,91,19,0.3) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Séparateur de catégorie */
+  .category-separator {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 56px 0 28px;
+  }
+  .category-separator-line {
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.06);
+  }
+  .category-separator-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .category-separator-label span.num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1px solid rgba(234,91,19,0.4);
+    color: #EA5B13;
+    font-size: 10px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .category-separator-label span.type-pill {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+  }
+</style>
+
+<section id="offres" class="w-full max-w-[1440px] mx-auto px-6 sm:px-8 md:px-12 lg:px-[72px] py-16 lg:py-24 bg-ga-ink">
+  <div class="ga-eyebrow text-[11px] tracking-[0.2em] uppercase text-ga-orange mb-5 font-medium flex items-center gap-2.5">Nos offres 2026</div>
+  <div class="mb-8">
+    <h2 class="text-[30px] sm:text-[36px] lg:text-[44px] font-semibold tracking-[-0.035em] leading-[1.08] text-white">Trois packs.<br>Une seule obsession : votre ROI.</h2>
+  </div>
+
+  <!-- ① Pack Setup -->
+  <div class="category-separator">
+    <div class="category-separator-label">
+      <span class="num">1</span>
+      Pack Setup
+      <span class="type-pill">Facturation unique</span>
+    </div>
+    <div class="category-separator-line"></div>
+  </div>
+
+  <div class="offers-grid">
+
+    <!-- Starter Setup -->
+    <div class="offer-card">
+      <span class="inline-block text-[10px] tracking-[0.15em] uppercase text-ga-orange bg-ga-orange/[0.12] px-2.5 py-1 rounded-sm mb-[18px] self-start">Starter</span>
+      <div class="text-xl font-semibold text-white tracking-[-0.02em] mb-1.5">Setup Starter</div>
+      <div class="text-[13px] text-white/50 mb-7 leading-[1.5]">PME &amp; lancement · Budget &lt; 2 500 €/mois</div>
+      <ul class="pack-features list-none mb-9 flex-1">
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Setup campagnes Google Ads</li>
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Config Conversions GTM</li>
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">OKR 100% opérationnels — garanti</li>
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Délai : 7 j ouvrés</li>
+        <li class="na text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Config GA4 &amp; Conversions</li>
+        <li class="na text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Google Merchant Center</li>
+      </ul>
+      <a href="#cta" class="pack-cta block text-center py-[13px] border border-ga-orange/35 text-ga-orange no-underline text-[13px] font-semibold tracking-[0.05em] rounded-sm transition-all duration-200 hover:bg-ga-orange hover:text-white hover:border-ga-orange">Démarrer →</a>
+    </div>
+
+    <!-- Standard Setup — Featured -->
+    <div class="offer-card featured pack-card">
+      <span class="inline-block text-[10px] tracking-[0.15em] uppercase text-ga-orange bg-ga-orange/[0.18] px-2.5 py-1 rounded-sm mb-[18px] self-start">★ Recommandé</span>
+      <div class="text-xl font-semibold text-white tracking-[-0.02em] mb-1.5">Setup Standard</div>
+      <div class="text-[13px] text-white/50 mb-7 leading-[1.5]">En croissance · Budget 2 500–10 000 €/mois</div>
+      <ul class="pack-features list-none mb-9 flex-1">
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Setup campagnes Google Ads</li>
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Config Conversions GTM</li>
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Config GA4 &amp; Conversions GA4</li>
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">OKR 100% opérationnels — garanti</li>
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Délai : 7 j ouvrés</li>
+        <li class="na text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Google Merchant Center</li>
+      </ul>
+      <a href="#cta" class="pack-cta block text-center py-[13px] border border-ga-orange bg-ga-orange text-white no-underline text-[13px] font-semibold tracking-[0.05em] rounded-sm transition-all duration-200 hover:bg-[#d45110] hover:border-[#d45110]">Démarrer →</a>
+    </div>
+
+    <!-- Premium Setup -->
+    <div class="offer-card">
+      <span class="inline-block text-[10px] tracking-[0.15em] uppercase text-ga-orange bg-ga-orange/[0.12] px-2.5 py-1 rounded-sm mb-[18px] self-start">Premium</span>
+      <div class="text-xl font-semibold text-white tracking-[-0.02em] mb-1.5">Setup Premium</div>
+      <div class="text-[13px] text-white/50 mb-7 leading-[1.5]">Scaling avancé · Budget 10k–100k €/mois</div>
+      <ul class="pack-features list-none mb-9 flex-1">
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Setup campagnes Google Ads</li>
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Config Conversions GTM</li>
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Config GA4 &amp; Conversions GA4</li>
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Config Google Merchant Center</li>
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">OKR 100% opérationnels — garanti</li>
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Délai : 7 j ouvrés</li>
+      </ul>
+      <a href="#cta" class="pack-cta block text-center py-[13px] border border-ga-orange/35 text-ga-orange no-underline text-[13px] font-semibold tracking-[0.05em] rounded-sm transition-all duration-200 hover:bg-ga-orange hover:text-white hover:border-ga-orange">Démarrer →</a>
+    </div>
+  </div>
+
+  <!-- ② Pack Gestion Mensuelle -->
+  <div class="category-separator">
+    <div class="category-separator-label">
+      <span class="num">2</span>
+      Pack Gestion Mensuelle
+      <span class="type-pill">Abonnement</span>
+    </div>
+    <div class="category-separator-line"></div>
+  </div>
+
+  <div class="offers-grid">
+
+    <!-- Gestion Starter -->
+    <div class="offer-card">
+      <span class="inline-block text-[10px] tracking-[0.15em] uppercase text-ga-orange bg-ga-orange/[0.12] px-2.5 py-1 rounded-sm mb-[18px] self-start">Starter</span>
+      <div class="text-xl font-semibold text-white tracking-[-0.02em] mb-1.5">Gestion Starter</div>
+      <div class="text-[13px] text-white/50 mb-7 leading-[1.5]">PME &amp; lancement</div>
+      <ul class="pack-features list-none mb-9 flex-1">
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Suivi &amp; optimisation continue</li>
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">KPI co-définis (CPA, ROAS, budget)</li>
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">WhatsApp &lt; 24h ouvrées</li>
+        <li class="na text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Reporting hebdo + dashboard live</li>
+        <li class="na text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Stratégie Funnel &amp; UX</li>
+        <li class="na text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Call Account Manager</li>
+        <li class="na text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Business Review CEO</li>
+      </ul>
+      <a href="#cta" class="pack-cta block text-center py-[13px] border border-ga-orange/35 text-ga-orange no-underline text-[13px] font-semibold tracking-[0.05em] rounded-sm transition-all duration-200 hover:bg-ga-orange hover:text-white hover:border-ga-orange">Choisir →</a>
+    </div>
+
+    <!-- Gestion Standard — Featured -->
+    <div class="offer-card featured pack-card">
+      <span class="inline-block text-[10px] tracking-[0.15em] uppercase text-ga-orange bg-ga-orange/[0.18] px-2.5 py-1 rounded-sm mb-[18px] self-start">★ Recommandé</span>
+      <div class="text-xl font-semibold text-white tracking-[-0.02em] mb-1.5">Gestion Standard</div>
+      <div class="text-[13px] text-white/50 mb-7 leading-[1.5]">En croissance</div>
+      <ul class="pack-features list-none mb-9 flex-1">
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Suivi &amp; optimisation continue</li>
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">KPI co-définis (CPA, ROAS, budget)</li>
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">WhatsApp &lt; 8h (partagé)</li>
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Reporting hebdo + dashboard live</li>
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Stratégie Funnel, audience, UX, GMC</li>
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Call Account Manager 30 min/mois</li>
+        <li class="na text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Business Review CEO</li>
+      </ul>
+      <a href="#cta" class="pack-cta block text-center py-[13px] border border-ga-orange bg-ga-orange text-white no-underline text-[13px] font-semibold tracking-[0.05em] rounded-sm transition-all duration-200 hover:bg-[#d45110] hover:border-[#d45110]">Choisir →</a>
+    </div>
+
+    <!-- Gestion Premium -->
+    <div class="offer-card">
+      <span class="inline-block text-[10px] tracking-[0.15em] uppercase text-ga-orange bg-ga-orange/[0.12] px-2.5 py-1 rounded-sm mb-[18px] self-start">Premium</span>
+      <div class="text-xl font-semibold text-white tracking-[-0.02em] mb-1.5">Gestion Premium</div>
+      <div class="text-[13px] text-white/50 mb-7 leading-[1.5]">Scaling avancé</div>
+      <ul class="pack-features list-none mb-9 flex-1">
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Suivi &amp; optimisation continue</li>
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">KPI co-définis (CPA, ROAS, budget)</li>
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">WhatsApp &lt; 4h (prioritaire)</li>
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Reporting hebdo + dashboard live</li>
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Stratégie Business (marché, CA)</li>
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Call Account Manager 1h/mois</li>
+        <li class="text-[13.5px] text-white/60 py-[9px] border-b border-white/[0.05] flex items-start gap-2.5 leading-[1.5]">Business Review CEO 1h/trimestre</li>
+      </ul>
+      <a href="#cta" class="pack-cta block text-center py-[13px] border border-ga-orange/35 text-ga-orange no-underline text-[13px] font-semibold tracking-[0.05em] rounded-sm transition-all duration-200 hover:bg-ga-orange hover:text-white hover:border-ga-orange">Choisir →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ ⑥ PROCESS ═════════════ -->
+<style>
+  /* ══════════════════════════════
+     PROCESS TIMELINE — v3
+     Principe : une seule grille 4 colonnes.
+     La barre passe exactement entre les centres.
+     Le pic de chaque card est centré à 50% de sa colonne.
+  ══════════════════════════════ */
+
+  /* Conteneur principal desktop */
+  .proc-desktop {
+    display: none;
+  }
+  @media (min-width: 1024px) {
+    .proc-desktop { display: block; }
+  }
+
+  /* Grille unique 4 colonnes — partagée nodes + cards */
+  .proc-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  /* ── Rangée des nodes ── */
+  .proc-nodes-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 20px;
+  }
+
+  /* Barre de fond (rail complet, gris très doux) */
+  .proc-nodes-row::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    /* commence au centre de la col 1, finit au centre de la col 4 */
+    left: calc(12.5%);
+    right: calc(12.5%);
+    height: 1px;
+    background: #DDDEDD;
+    z-index: 0;
+  }
+
+  /* Barre de progression orange (étapes 1→3) */
+  .proc-nodes-row::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: calc(12.5%);
+    /* s'arrête au centre de la col 3 = 12.5% + 2*25% = 62.5% depuis left */
+    width: calc(50%);
+    height: 1px;
+    background: linear-gradient(90deg, rgba(234,91,19,0.5) 0%, rgba(234,91,19,0.25) 100%);
+    z-index: 0;
+  }
+
+  /* Cellule node — centrée dans sa colonne */
+  .proc-node-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    padding: 8px 0;
+  }
+
+  /* Cercle node */
+  .proc-node {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    border: 1.5px solid #DDDEDD;
+    background: #F0EEE9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+  }
+  .proc-node.done {
+    border-color: rgba(234,91,19,0.35);
+    background: rgba(234,91,19,0.05);
+  }
+  .proc-node.active {
+    border-color: #EA5B13;
+    background: #fff;
+    box-shadow: 0 0 0 6px rgba(234,91,19,0.09), 0 2px 12px rgba(234,91,19,0.15);
+  }
+
+  /* ── Cards ── */
+  .proc-card-cell {
+    position: relative;
+  }
+
+  .proc-step-card {
+    background: #fff;
+    border: 1px solid rgba(230,232,229,0.9);
+    border-radius: 14px;
+    padding: 26px 22px 22px;
+    position: relative;
+    transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  .proc-step-card:hover {
+    border-color: rgba(234,91,19,0.28);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.06);
+    transform: translateY(-2px);
+  }
+  .proc-step-card.is-active {
+    border-color: rgba(234,91,19,0.32);
+    background: rgba(234,91,19,0.025);
+  }
+  .proc-step-card.is-active:hover {
+    border-color: rgba(234,91,19,0.5);
+    box-shadow: 0 12px 36px rgba(234,91,19,0.1);
+  }
+
+  /* Pic centré exactement sur le node au-dessus */
+  .proc-step-card::before {
+    content: '';
+    position: absolute;
+    top: -7px;
+    /* centré dans la card = 50% - demi-largeur du pic */
+    left: calc(50% - 7px);
+    width: 13px;
+    height: 13px;
+    background: inherit;
+    border-top: 1px solid rgba(230,232,229,0.9);
+    border-left: 1px solid rgba(230,232,229,0.9);
+    transform: rotate(45deg);
+    border-radius: 2px 0 0 0;
+  }
+  .proc-step-card.is-active::before {
+    border-color: rgba(234,91,19,0.32);
+  }
+
+  /* Timing badge */
+  .proc-timing {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: #EA5B13;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 9px;
+  }
+  .proc-timing::before {
+    content: '';
+    width: 14px;
+    height: 1px;
+    background: rgba(234,91,19,0.38);
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  /* ── Mobile timeline ── */
+  .proc-mobile {
+    display: block;
+  }
+  @media (min-width: 1024px) {
+    .proc-mobile { display: none; }
+  }
+
+  .proc-mobile-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* Ligne verticale continue */
+  .proc-mobile-rail {
+    position: absolute;
+    left: 26px;
+    top: 27px;
+    bottom: 27px;
+    width: 1px;
+    background: linear-gradient(180deg,
+      rgba(234,91,19,0.3) 0%,
+      rgba(234,91,19,0.15) 60%,
+      #DDDEDD 100%
+    );
+    z-index: 0;
+  }
+
+  .proc-mobile-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding-bottom: 16px;
+  }
+  .proc-mobile-step:last-child {
+    padding-bottom: 0;
+  }
+
+  .proc-mobile-node {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    border: 1.5px solid #DDDEDD;
+    background: #F0EEE9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .proc-mobile-node.done {
+    border-color: rgba(234,91,19,0.35);
+    background: rgba(234,91,19,0.05);
+  }
+  .proc-mobile-node.active {
+    border-color: #EA5B13;
+    background: #fff;
+    box-shadow: 0 0 0 5px rgba(234,91,19,0.09);
+  }
+
+  .proc-mobile-card {
+    flex: 1;
+    background: #fff;
+    border: 1px solid rgba(230,232,229,0.9);
+    border-radius: 12px;
+    padding: 20px 18px 18px;
+    margin-top: 4px;
+  }
+  .proc-mobile-card.is-active {
+    border-color: rgba(234,91,19,0.32);
+    background: rgba(234,91,19,0.025);
+  }
+</style>
+
+<section id="process" class="w-full max-w-[1440px] mx-auto px-6 sm:px-8 md:px-12 lg:px-[72px] py-16 lg:py-24 bg-ga-off2">
+
+  <!-- Header -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 mb-16 lg:mb-20 items-end">
+    <div>
+      <div class="ga-eyebrow text-[11px] tracking-[0.2em] uppercase text-ga-orange mb-[18px] font-medium flex items-center gap-2.5">Notre processus</div>
+      <h2 class="text-[30px] sm:text-[36px] lg:text-[44px] font-semibold tracking-[-0.035em] leading-[1.08] text-ga-ink">De l'appel à la<br><em class="not-italic text-ga-orange">performance</em><br>en 4 étapes.</h2>
+    </div>
+    <p class="text-[15px] leading-[1.8] text-ga-txt-mid">Un onboarding structuré, un setup garanti 7 jours ouvrés, puis un pilotage continu orienté résultats.</p>
+  </div>
+
+  <!-- ══════ DESKTOP ══════ -->
+  <div class="proc-desktop">
+
+    <!-- Rangée des nodes + barre -->
+    <div class="proc-nodes-row">
+      <div class="proc-node-cell">
+        <div class="proc-node done">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EA5B13" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.36 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.64a16 16 0 0 0 5.95 5.95l.97-.97a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+      </div>
+      <div class="proc-node-cell">
+        <div class="proc-node done">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EA5B13" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+          </svg>
+        </div>
+      </div>
+      <div class="proc-node-cell">
+        <div class="proc-node active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EA5B13" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </div>
+      </div>
+      <div class="proc-node-cell">
+        <div class="proc-node">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A0A8A5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rangée des cards — même grille -->
+    <div class="proc-grid">
+
+      <div class="proc-card-cell">
+        <div class="proc-step-card">
+          <div class="proc-timing">J+0 · 30 min</div>
+          <h3 class="text-[14.5px] font-semibold text-ga-ink mb-2 tracking-[-0.02em] leading-[1.3]">Appel découverte</h3>
+          <p class="text-[13px] text-ga-txt-mid leading-[1.7]">Analyse de votre situation réelle, co-définition des KPI cibles et identification du modèle adapté.</p>
+        </div>
+      </div>
+
+      <div class="proc-card-cell">
+        <div class="proc-step-card">
+          <div class="proc-timing">J+2</div>
+          <h3 class="text-[14.5px] font-semibold text-ga-ink mb-2 tracking-[-0.02em] leading-[1.3]">Onboarding &amp; Audit</h3>
+          <p class="text-[13px] text-ga-txt-mid leading-[1.7]">Accès comptes, audit du tracking existant, signature des OKR. Fondations posées sans approximation.</p>
+        </div>
+      </div>
+
+      <div class="proc-card-cell">
+        <div class="proc-step-card is-active">
+          <div class="proc-timing">J+7 · Garanti</div>
+          <h3 class="text-[14.5px] font-semibold text-ga-ink mb-2 tracking-[-0.02em] leading-[1.3]">Setup complet</h3>
+          <p class="text-[13px] text-ga-txt-mid leading-[1.7]">GTM, GA4, campagnes structurées pour scaler. 100% opérationnel en 7 jours ouvrés, garanti.</p>
+          <div class="mt-4 pt-3 border-t border-ga-orange/[0.14] flex items-center gap-1.5">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#EA5B13" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="text-[10px] tracking-[0.1em] uppercase text-ga-orange font-semibold">Résultat garanti</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proc-card-cell">
+        <div class="proc-step-card">
+          <div class="proc-timing">J+30 → ∞</div>
+          <h3 class="text-[14.5px] font-semibold text-ga-ink mb-2 tracking-[-0.02em] leading-[1.3]">Pilotage &amp; Croissance</h3>
+          <p class="text-[13px] text-ga-txt-mid leading-[1.7]">Optimisation continue, reporting hebdo, calls dédiés. Votre ROAS progresse chaque mois.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════ MOBILE / TABLETTE ══════ -->
+  <div class="proc-mobile">
+    <div class="proc-mobile-wrap">
+      <div class="proc-mobile-rail"></div>
+
+      <!-- Step 01 -->
+      <div class="proc-mobile-step">
+        <div class="proc-mobile-node done">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EA5B13" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.36 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.64a16 16 0 0 0 5.95 5.95l.97-.97a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <div class="proc-mobile-card">
+          <div class="proc-timing">J+0 · 30 min</div>
+          <h3 class="text-[14.5px] font-semibold text-ga-ink mb-1.5 tracking-[-0.02em]">Appel découverte</h3>
+          <p class="text-[13px] text-ga-txt-mid leading-[1.65]">Analyse de votre situation réelle, co-définition des KPI cibles et identification du modèle adapté.</p>
+        </div>
+      </div>
+
+      <!-- Step 02 -->
+      <div class="proc-mobile-step">
+        <div class="proc-mobile-node done">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EA5B13" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+          </svg>
+        </div>
+        <div class="proc-mobile-card">
+          <div class="proc-timing">J+2</div>
+          <h3 class="text-[14.5px] font-semibold text-ga-ink mb-1.5 tracking-[-0.02em]">Onboarding &amp; Audit</h3>
+          <p class="text-[13px] text-ga-txt-mid leading-[1.65]">Accès comptes, audit du tracking existant, signature des OKR. Fondations posées sans approximation.</p>
+        </div>
+      </div>
+
+      <!-- Step 03 — active -->
+      <div class="proc-mobile-step">
+        <div class="proc-mobile-node active">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EA5B13" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </div>
+        <div class="proc-mobile-card is-active">
+          <div class="proc-timing">J+7 · Garanti</div>
+          <h3 class="text-[14.5px] font-semibold text-ga-ink mb-1.5 tracking-[-0.02em]">Setup complet</h3>
+          <p class="text-[13px] text-ga-txt-mid leading-[1.65]">GTM, GA4, campagnes structurées pour scaler. 100% opérationnel en 7 jours ouvrés, garanti.</p>
+          <div class="mt-3 pt-3 border-t border-ga-orange/[0.14] flex items-center gap-1.5">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#EA5B13" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="text-[10px] tracking-[0.1em] uppercase text-ga-orange font-semibold">Résultat garanti</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 04 -->
+      <div class="proc-mobile-step">
+        <div class="proc-mobile-node">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A0A8A5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+          </svg>
+        </div>
+        <div class="proc-mobile-card">
+          <div class="proc-timing">J+30 → ∞</div>
+          <h3 class="text-[14.5px] font-semibold text-ga-ink mb-1.5 tracking-[-0.02em]">Pilotage &amp; Croissance</h3>
+          <p class="text-[13px] text-ga-txt-mid leading-[1.65]">Optimisation continue, reporting hebdo, calls dédiés. Votre ROAS progresse chaque mois.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- ═════════════ ⑦ CTA ═════════════ -->
+<section id="cta" class="w-full max-w-[1440px] mx-auto bg-ga-orange px-6 sm:px-8 md:px-12 lg:px-[72px] py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 lg:gap-[60px] items-center relative overflow-hidden">
+  <div class="absolute right-[-10px] bottom-[-40px] text-[120px] sm:text-[160px] lg:text-[220px] font-semibold leading-none text-white/[0.07] tracking-[-0.06em] pointer-events-none select-none">Go.</div>
+  <div class="relative z-[1]">
+    <h2 class="text-[26px] sm:text-[34px] lg:text-[44px] font-semibold tracking-[-0.04em] text-white leading-[1.06]">30 minutes pour savoir<br>si on peut vous <em class="italic font-light">aider.</em></h2>
+    <p class="text-[15px] text-white/65 mt-3">Appel découverte gratuit · Analyse de votre compte incluse · Sans engagement · Réponse sous 24h</p>
+  </div>
+  <div class="flex flex-col items-start lg:items-end gap-2.5 relative z-[1]">
+    <a href="mailto:hello@globalact.fr" class="inline-flex items-center gap-2.5 bg-white text-ga-orange px-10 lg:px-[52px] py-5 text-[15px] font-semibold no-underline rounded-sm whitespace-nowrap transition-all duration-200 hover:-translate-y-0.5 hover:shadow-ga-white">Réserver mon appel →</a>
+    <span class="text-[11px] text-white/40 tracking-[0.06em]">hello@globalact.fr · www.globalact.fr</span>
+  </div>
+</section>
+
+<!-- ═════════════ FOOTER ═════════════ -->
+<footer class="w-full max-w-[1440px] mx-auto bg-[#0C0E0D] px-6 sm:px-8 md:px-12 lg:px-[72px] pt-16 pb-10 border-t border-white/[0.04]">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10 lg:gap-14 pb-12 border-b border-white/[0.05]">
+    <div>
+      <div class="block mb-3.5">
+        <img src="Logo Globalact.svg" alt="Globalact — Agence SEA Performance" width="150" height="36" loading="lazy" decoding="async" class="h-9 w-auto block">
+      </div>
+      <p class="text-[13px] text-white/20 leading-[1.75] mb-5">Agence SEA Performance Pure Player.<br>On ne fait pas les choses à moitié.</p>
+      <a href="mailto:hello@globalact.fr" class="block no-underline text-[13px] text-ga-orange mb-1.5">hello@globalact.fr</a>
+      <a href="http://www.globalact.fr" class="block no-underline text-[13px] text-white/20">www.globalact.fr</a>
+    </div>
+    <div>
+      <h4 class="text-[10px] tracking-[0.2em] uppercase text-white/[0.18] mb-[18px] font-medium">Expertises</h4>
+      <ul class="list-none">
+        <li class="mb-2.5"><a href="#positionnement" class="no-underline text-[13px] text-white/[0.28] transition-colors duration-200 hover:text-white">Google Search Ads</a></li>
+        <li class="mb-2.5"><a href="#positionnement" class="no-underline text-[13px] text-white/[0.28] transition-colors duration-200 hover:text-white">Google Shopping</a></li>
+        <li class="mb-2.5"><a href="#positionnement" class="no-underline text-[13px] text-white/[0.28] transition-colors duration-200 hover:text-white">Performance Max</a></li>
+        <li class="mb-2.5"><a href="#comprendre" class="no-underline text-[13px] text-white/[0.28] transition-colors duration-200 hover:text-white">Tracking &amp; GA4</a></li>
+        <li class="mb-2.5"><a href="#positionnement" class="no-underline text-[13px] text-white/[0.28] transition-colors duration-200 hover:text-white">Microsoft Ads</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-[10px] tracking-[0.2em] uppercase text-white/[0.18] mb-[18px] font-medium">Partenariat</h4>
+      <ul class="list-none">
+        <li class="mb-2.5"><a href="#offres" class="no-underline text-[13px] text-white/[0.28] transition-colors duration-200 hover:text-white">Setup Foundation</a></li>
+        <li class="mb-2.5"><a href="#offres" class="no-underline text-[13px] text-white/[0.28] transition-colors duration-200 hover:text-white">Growth</a></li>
+        <li class="mb-2.5"><a href="#offres" class="no-underline text-[13px] text-white/[0.28] transition-colors duration-200 hover:text-white">Business Partner</a></li>
+        <li class="mb-2.5"><a href="#offres" class="no-underline text-[13px] text-white/[0.28] transition-colors duration-200 hover:text-white">Enterprise</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-[10px] tracking-[0.2em] uppercase text-white/[0.18] mb-[18px] font-medium">Agence</h4>
+      <ul class="list-none">
+        <li class="mb-2.5"><a href="#positionnement" class="no-underline text-[13px] text-white/[0.28] transition-colors duration-200 hover:text-white">Notre méthode</a></li>
+        <li class="mb-2.5"><a href="#comprendre" class="no-underline text-[13px] text-white/[0.28] transition-colors duration-200 hover:text-white">Résultats clients</a></li>
+        <li class="mb-2.5"><a href="#cta" class="no-underline text-[13px] text-white/[0.28] transition-colors duration-200 hover:text-white">Appel découverte</a></li>
+        <li class="mb-2.5"><a href="#cta" class="no-underline text-[13px] text-white/[0.28] transition-colors duration-200 hover:text-white">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pt-6">
+    <span class="text-[11px] text-white/[0.12] tracking-[0.04em]">© 2026 Globalact · Tous droits réservés</span>
+    <div class="flex flex-wrap gap-2.5">
+      <span class="border border-white/[0.07] px-2.5 py-1 text-[10px] text-white/[0.16] tracking-[0.1em] uppercase rounded-sm">Google Partner</span>
+      <span class="border border-white/[0.07] px-2.5 py-1 text-[10px] text-white/[0.16] tracking-[0.1em] uppercase rounded-sm">SEA Pure Player</span>
+      <span class="border border-white/[0.07] px-2.5 py-1 text-[10px] text-white/[0.16] tracking-[0.1em] uppercase rounded-sm">Data-First</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═════════════ SCRIPT HERO SLIDER (responsive) ═════════════ -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const track = document.querySelector('.hero-slider-track');
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+  const prevBtn = document.querySelector('.hero-arrow.prev');
+  const nextBtn = document.querySelector('.hero-arrow.next');
+
+  let currentIndex = 0;
+  const slideCount = slides.length;
+  let slideInterval;
+
+  // ── Largeur responsive : on lit la largeur réelle d'une slide ──
+  function getSlideWidth() {
+    return slides[0]?.offsetWidth || window.innerWidth;
+  }
+
+  function updateSlider(index) {
+    if (index >= slideCount) currentIndex = 0;
+    else if (index < 0) currentIndex = slideCount - 1;
+    else currentIndex = index;
+
+    const slideWidth = getSlideWidth();
+    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+    dots.forEach((dot, i) => {
+      if (i === currentIndex) dot.classList.add('active');
+      else dot.classList.remove('active');
+    });
+  }
+
+  function nextSlide() { updateSlider(currentIndex + 1); }
+  function prevSlide() { updateSlider(currentIndex - 1); }
+
+  if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetInterval(); });
+  if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetInterval(); });
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => { updateSlider(i); resetInterval(); });
+  });
+
+  function startInterval() { slideInterval = setInterval(nextSlide, 6000); }
+  function resetInterval() { clearInterval(slideInterval); startInterval(); }
+
+  // ── Recalculer la position au redimensionnement ──
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => updateSlider(currentIndex), 100);
+  });
+
+  startInterval();
+});
+</script>
+
+</body>
+</html>
