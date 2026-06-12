@@ -52,6 +52,8 @@
     transition: width .2s ease;
   }
   .nav-link:hover::after { width: 100%; }
+  .nav-link.active { color: #1C1F1D; }
+  .nav-link.active::after { width: 100%; }
 
   /* ─── HERO : décorations radiales & cercles ─── */
   .hero-radial::before {
@@ -182,7 +184,7 @@
   "name": "Globalact",
   "description": "Agence SEA Performance Pure Player spécialisée Google Ads : Search, Shopping, Performance Max et tracking avancé.",
   "url": "https://www.globalact.fr/",
-  "email": "hello@globalact.fr",
+  "email": "sales@globalact.fr",
   "image": "https://www.globalact.fr/og-image.png",
   "priceRange": "À partir de 250 € / mois",
   "areaServed": "FR",
@@ -207,7 +209,7 @@
   </ul>
 
   <div class="flex items-center gap-4 sm:gap-7">
-    <a href="mailto:hello@globalact.fr" class="hidden md:inline-block text-[13px] font-normal text-ga-txt-mid no-underline transition-colors duration-200 hover:text-ga-orange">hello@globalact.fr</a>
+    <a href="mailto:sales@globalact.fr" class="hidden md:inline-block text-[13px] font-normal text-ga-txt-mid no-underline transition-colors duration-200 hover:text-ga-orange">sales@globalact.fr</a>
     <a href="#cta" class="inline-flex items-center gap-2 bg-ga-orange text-white px-4 sm:px-6 py-3 text-[13px] font-semibold no-underline rounded transition-all duration-200 hover:bg-[#d45110] hover:-translate-y-px hover:shadow-ga-btn">Appel gratuit →</a>
   </div>
 </nav>
@@ -218,7 +220,7 @@
   <div class="hero-slider-track">
 
     <!-- ─── SLIDE 1 ─── -->
-    <div class="hero-slide min-w-full w-full min-h-[820px] grid grid-cols-1 lg:grid-cols-[1fr_480px] items-center px-6 sm:px-8 md:px-12 lg:px-[72px] pt-20 pb-20 lg:pt-[110px] lg:pb-[88px] flex-shrink-0 relative box-border gap-12 lg:gap-0">
+    <div class="hero-slide min-w-full w-full min-h-[820px] grid grid-cols-1 lg:grid-cols-[1fr_480px] items-center px-6 sm:px-8 md:px-12 lg:px-[72px] pt-20 pb-20 lg:pt-[0px] lg:pb-[0px] flex-shrink-0 relative box-border gap-12 lg:gap-0">
       <div class="max-w-[580px] relative z-[2]">
         <div class="hero-eyebrow inline-flex items-center gap-2.5 text-[11px] tracking-[0.2em] uppercase text-ga-orange mb-7">Agence SEA Performance · Pure Player Google Ads</div>
         <h1 class="text-[44px] sm:text-[52px] lg:text-[64px] font-semibold leading-[1.06] tracking-[-0.035em] text-white mb-[26px]">Vos campagnes<br>Google Ads ne<br>sont pas <em class="not-italic text-ga-orange">rentables.</em><br>On sait pourquoi.</h1>
@@ -245,7 +247,7 @@
     </div>
 
     <!-- ─── SLIDE 2 ─── -->
-    <div class="hero-slide min-w-full w-full min-h-[820px] grid grid-cols-1 lg:grid-cols-[1fr_480px] items-center px-6 sm:px-8 md:px-12 lg:px-[72px] pt-20 pb-20 lg:pt-[110px] lg:pb-[88px] flex-shrink-0 relative box-border gap-12 lg:gap-0">
+    <div class="hero-slide min-w-full w-full min-h-[820px] grid grid-cols-1 lg:grid-cols-[1fr_480px] items-center px-6 sm:px-8 md:px-12 lg:px-[72px] pt-20 pb-20 lg:pt-[0px] lg:pb-[0px] flex-shrink-0 relative box-border gap-12 lg:gap-0">
       <div class="max-w-[580px] relative z-[2]">
         <div class="hero-eyebrow inline-flex items-center gap-2.5 text-[11px] tracking-[0.2em] uppercase text-ga-orange mb-7">Preuve à l'appui</div>
         <h2 class="text-[44px] sm:text-[52px] lg:text-[64px] font-semibold leading-[1.06] tracking-[-0.035em] text-white mb-[26px]">Vos campagnes<br><em class="not-italic text-ga-orange">scalent.</em><br>Votre acquisition<br>devient rentable.</h2>
@@ -300,7 +302,7 @@
     </div>
 
     <!-- ─── SLIDE 3 ─── -->
-    <div class="hero-slide min-w-full w-full min-h-[820px] grid grid-cols-1 lg:grid-cols-[1fr_480px] items-center px-6 sm:px-8 md:px-12 lg:px-[72px] pt-20 pb-20 lg:pt-[110px] lg:pb-[88px] flex-shrink-0 relative box-border gap-12 lg:gap-0">
+    <div class="hero-slide min-w-full w-full min-h-[820px] grid grid-cols-1 lg:grid-cols-[1fr_480px] items-center px-6 sm:px-8 md:px-12 lg:px-[72px] pt-20 pb-20 lg:pt-[0px] lg:pb-[0px] flex-shrink-0 relative box-border gap-12 lg:gap-0">
       <div class="max-w-[580px] relative z-[2]">
         <div class="hero-eyebrow inline-flex items-center gap-2.5 text-[11px] tracking-[0.2em] uppercase text-ga-orange mb-7">Leviers de Croissance</div>
         <h2 class="text-[44px] sm:text-[52px] lg:text-[64px] font-semibold leading-[1.06] tracking-[-0.035em] text-white mb-[26px]">Faites de Google<br>Ads votre <em class="not-italic text-ga-orange">moteur</em><br>de croissance.</h2>
@@ -339,10 +341,6 @@
 
   <!-- Contrôles du Slider -->
   <div class="absolute bottom-10 left-6 sm:left-8 md:left-12 lg:left-[72px] flex items-center gap-6 z-10">
-    <div class="flex gap-2">
-      <button class="hero-arrow prev bg-transparent border border-white/15 text-white/60 w-[38px] h-[38px] flex items-center justify-center cursor-pointer rounded-sm text-base transition-all duration-200 select-none hover:border-ga-orange hover:text-white hover:bg-ga-orange/10" aria-label="Précédent">←</button>
-      <button class="hero-arrow next bg-transparent border border-white/15 text-white/60 w-[38px] h-[38px] flex items-center justify-center cursor-pointer rounded-sm text-base transition-all duration-200 select-none hover:border-ga-orange hover:text-white hover:bg-ga-orange/10" aria-label="Suivant">→</button>
-    </div>
     <div class="flex gap-2.5">
       <span class="hero-dot active w-2 h-2 rounded-full bg-white/25 cursor-pointer transition-all duration-300"></span>
       <span class="hero-dot w-2 h-2 rounded-full bg-white/25 cursor-pointer transition-all duration-300"></span>
@@ -412,6 +410,8 @@
     </div>
   </div>
 </section>
+
+
 
 <!-- ═════════════ ③ COMPRÉHENSION ═════════════ -->
 <section id="comprendre" class="w-full max-w-[1440px] mx-auto px-6 sm:px-8 md:px-12 lg:px-[72px] py-16 lg:py-24 bg-white">
@@ -639,7 +639,7 @@
         </button>
         <div class="faq-body">
           <div class="faq-body-inner">
-            <p class="faq-answer">L'infrastructure est opérationnelle à J+7, garanti. <strong>Les premières optimisations significatives apparaissent entre J+30 et J+60.</strong></p>
+            <p class="faq-answer">L'infrastructure est opérationnelle maximum à J+7, garanti. Ensuite, nous analysons les données et optimisons progressivement les campagnes afin d'identifier les leviers les plus rentables.</p>
           </div>
         </div>
       </div>
@@ -1155,7 +1155,7 @@ function toggleFaq(btn) {
       <div class="ga-eyebrow text-[11px] tracking-[0.2em] uppercase text-ga-orange mb-[18px] font-medium flex items-center gap-2.5">Notre processus</div>
       <h2 class="text-[30px] sm:text-[36px] lg:text-[44px] font-semibold tracking-[-0.035em] leading-[1.08] text-ga-ink">De l'appel à la<br><em class="not-italic text-ga-orange">performance</em><br>en 4 étapes.</h2>
     </div>
-    <p class="text-[15px] leading-[1.8] text-ga-txt-mid">Un onboarding structuré, un setup garanti 7 jours ouvrés, puis un pilotage continu orienté résultats.</p>
+    <p class="text-[15px] leading-[1.8] text-ga-txt-mid">Un onboarding structuré, un setup garanti en 7 jours ouvrés maximum, puis un pilotage continu orienté résultats.</p>
   </div>
 
   <!-- ══════ DESKTOP ══════ -->
@@ -1216,7 +1216,7 @@ function toggleFaq(btn) {
         <div class="proc-step-card is-active">
           <div class="proc-timing">J+7 · Garanti</div>
           <h3 class="text-[14.5px] font-semibold text-ga-ink mb-2 tracking-[-0.02em] leading-[1.3]">Setup complet</h3>
-          <p class="text-[13px] text-ga-txt-mid leading-[1.7]">GTM, GA4, campagnes structurées pour scaler. 100% opérationnel en 7 jours ouvrés, garanti.</p>
+          <p class="text-[13px] text-ga-txt-mid leading-[1.7]">GTM, GA4, campagnes structurées pour scaler. 100% opérationnel sous 7 jours ouvrés, garanti.</p>
           <div class="mt-4 pt-3 border-t border-ga-orange/[0.14] flex items-center gap-1.5">
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#EA5B13" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             <span class="text-[10px] tracking-[0.1em] uppercase text-ga-orange font-semibold">Résultat garanti</span>
@@ -1278,7 +1278,7 @@ function toggleFaq(btn) {
         <div class="proc-mobile-card is-active">
           <div class="proc-timing">J+7 · Garanti</div>
           <h3 class="text-[14.5px] font-semibold text-ga-ink mb-1.5 tracking-[-0.02em]">Setup complet</h3>
-          <p class="text-[13px] text-ga-txt-mid leading-[1.65]">GTM, GA4, campagnes structurées pour scaler. 100% opérationnel en 7 jours ouvrés, garanti.</p>
+          <p class="text-[13px] text-ga-txt-mid leading-[1.65]">GTM, GA4, campagnes structurées pour scaler. 100% opérationnel sous 7 jours ouvrés, garanti.</p>
           <div class="mt-3 pt-3 border-t border-ga-orange/[0.14] flex items-center gap-1.5">
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#EA5B13" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             <span class="text-[10px] tracking-[0.1em] uppercase text-ga-orange font-semibold">Résultat garanti</span>
@@ -1313,8 +1313,8 @@ function toggleFaq(btn) {
     <p class="text-[15px] text-white/65 mt-3">Appel découverte gratuit · Analyse de votre compte incluse · Sans engagement · Réponse sous 24h</p>
   </div>
   <div class="flex flex-col items-start lg:items-end gap-2.5 relative z-[1]">
-    <a href="mailto:hello@globalact.fr" class="inline-flex items-center gap-2.5 bg-white text-ga-orange px-10 lg:px-[52px] py-5 text-[15px] font-semibold no-underline rounded-sm whitespace-nowrap transition-all duration-200 hover:-translate-y-0.5 hover:shadow-ga-white">Réserver mon appel →</a>
-    <span class="text-[11px] text-white/40 tracking-[0.06em]">hello@globalact.fr · www.globalact.fr</span>
+    <a href="mailto:sales@globalact.fr" class="inline-flex items-center gap-2.5 bg-white text-ga-orange px-10 lg:px-[52px] py-5 text-[15px] font-semibold no-underline rounded-sm whitespace-nowrap transition-all duration-200 hover:-translate-y-0.5 hover:shadow-ga-white">Réserver mon appel →</a>
+    <span class="text-[11px] text-white/40 tracking-[0.06em]">sales@globalact.fr · www.globalact.fr</span>
   </div>
 </section>
 
@@ -1326,7 +1326,7 @@ function toggleFaq(btn) {
         <img src="Logo Globalact.svg" alt="Globalact — Agence SEA Performance" width="150" height="36" loading="lazy" decoding="async" class="h-9 w-auto block">
       </div>
       <p class="text-[13px] text-white/20 leading-[1.75] mb-5">Agence SEA Performance Pure Player.<br>On ne fait pas les choses à moitié.</p>
-      <a href="mailto:hello@globalact.fr" class="block no-underline text-[13px] text-ga-orange mb-1.5">hello@globalact.fr</a>
+      <a href="mailto:sales@globalact.fr" class="block no-underline text-[13px] text-ga-orange mb-1.5">sales@globalact.fr</a>
       <a href="http://www.globalact.fr" class="block no-underline text-[13px] text-white/20">www.globalact.fr</a>
     </div>
     <div>
@@ -1358,10 +1358,56 @@ function toggleFaq(btn) {
       </ul>
     </div>
   </div>
+
+  <!-- ─── Google Partner Banner ─── -->
+  <div class="py-8">
+    <a href="https://www.google.com/partners/agency?id=6381564507" target="_blank" rel="noopener noreferrer"
+       class="group relative block rounded-xl border border-white/[0.08] bg-gradient-to-r from-[#4285F4]/[0.03] via-white/[0.025] to-[#34A853]/[0.03] px-8 sm:px-12 py-7 overflow-hidden no-underline transition-all duration-400 hover:border-[#4285F4]/25 hover:from-[#4285F4]/[0.06] hover:to-[#34A853]/[0.05] hover:shadow-[0_0_70px_rgba(66,133,244,0.1),0_0_40px_rgba(52,168,83,0.06)]">
+      <!-- Glows décoratifs -->
+      <div class="absolute -left-16 top-1/2 -translate-y-1/2 w-48 h-48 rounded-full bg-[#4285F4]/[0.07] blur-3xl pointer-events-none transition-opacity duration-300 group-hover:opacity-150"></div>
+      <div class="absolute -right-16 top-1/2 -translate-y-1/2 w-48 h-48 rounded-full bg-[#34A853]/[0.06] blur-3xl pointer-events-none"></div>
+      <!-- Ligne décorative top -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-px bg-gradient-to-r from-transparent via-[#4285F4]/30 to-transparent"></div>
+
+      <div class="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <!-- Logo + titre -->
+        <div class="flex items-center gap-5">
+          <svg width="44" height="44" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="flex-shrink-0">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+          <div class="w-px h-12 bg-white/[0.1] flex-shrink-0"></div>
+          <div>
+            <span class="block text-[10px] tracking-[0.2em] uppercase text-white/30 font-medium mb-2">Agence certifiée</span>
+            <div class="flex items-baseline gap-2">
+              <span class="text-[22px] font-semibold leading-none tracking-[-0.03em]">
+                <span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span>
+              </span>
+              <span class="text-[22px] font-semibold text-white leading-none tracking-[-0.03em]">Partner</span>
+            </div>
+          </div>
+        </div>
+        <!-- Description + bouton -->
+        <div class="flex items-center gap-6">
+          <p class="hidden sm:block text-[12px] text-white/25 leading-[1.75] text-right">
+            Certification officielle attestant notre expertise<br>en gestion de campagnes Google Ads.
+          </p>
+          <div class="flex-shrink-0 inline-flex items-center gap-2 border border-white/[0.1] rounded-lg px-4 py-2.5 text-[12px] font-medium text-white/45 transition-all duration-200 group-hover:border-[#4285F4]/40 group-hover:text-white/70">
+            Vérifier
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+
   <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pt-6">
     <span class="text-[11px] text-white/[0.12] tracking-[0.04em]">© 2026 Globalact · Tous droits réservés</span>
     <div class="flex flex-wrap gap-2.5">
-      <span class="border border-white/[0.07] px-2.5 py-1 text-[10px] text-white/[0.16] tracking-[0.1em] uppercase rounded-sm">Google Partner</span>
       <span class="border border-white/[0.07] px-2.5 py-1 text-[10px] text-white/[0.16] tracking-[0.1em] uppercase rounded-sm">SEA Pure Player</span>
       <span class="border border-white/[0.07] px-2.5 py-1 text-[10px] text-white/[0.16] tracking-[0.1em] uppercase rounded-sm">Data-First</span>
     </div>
@@ -1410,7 +1456,7 @@ document.addEventListener('DOMContentLoaded', function() {
     dot.addEventListener('click', () => { updateSlider(i); resetInterval(); });
   });
 
-  function startInterval() { slideInterval = setInterval(nextSlide, 6000); }
+  function startInterval() { slideInterval = setInterval(nextSlide, 10000); }
   function resetInterval() { clearInterval(slideInterval); startInterval(); }
 
   // ── Recalculer la position au redimensionnement ──
@@ -1421,6 +1467,32 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   startInterval();
+});
+</script>
+
+
+<script>
+// ─── Nav active on scroll ───
+document.addEventListener('DOMContentLoaded', function () {
+  const navLinks = document.querySelectorAll('nav .nav-link');
+  const sections = document.querySelectorAll('section[id]');
+
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var id = entry.target.id;
+        navLinks.forEach(function (link) {
+          if (link.getAttribute('href') === '#' + id) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+    });
+  }, { rootMargin: '-40% 0px -60% 0px', threshold: 0 });
+
+  sections.forEach(function (s) { observer.observe(s); });
 });
 </script>
 
