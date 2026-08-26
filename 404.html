@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>404 | Page introuvable</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="min-h-screen bg-[#111312] text-white antialiased">
+    <main class="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-12">
+      <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(234,91,19,0.18),transparent_38%),radial-gradient(circle_at_bottom_left,rgba(114,127,124,0.16),transparent_35%)]"></div>
+
+      <section class="relative grid w-full max-w-5xl items-center gap-12 lg:grid-cols-[0.8fr_1.2fr]" aria-labelledby="error-title">
+        <div class="flex justify-center lg:justify-start" aria-hidden="true">
+          <div class="flex h-44 w-44 items-center justify-center rounded-[2.5rem] border border-[#EA5B13]/20 bg-[#EA5B13]/10 shadow-2xl shadow-black/40 sm:h-56 sm:w-56">
+            <svg class="h-24 w-24 text-[#EA5B13] sm:h-32 sm:w-32" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M48 9L87 80H9L48 9Z" stroke="currentColor" stroke-width="5" stroke-linejoin="round" />
+              <path d="M48 35V55" stroke="currentColor" stroke-width="6" stroke-linecap="round" />
+              <circle cx="48" cy="68" r="3.5" fill="currentColor" />
+            </svg>
+          </div>
+        </div>
+
+        <div class="max-w-xl text-center lg:text-left">
+          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-[#EA5B13]">Erreur HTTP</p>
+          <p id="error-code" class="text-8xl font-black leading-none tracking-tight text-white sm:text-9xl">404</p>
+          <h1 id="error-title" class="mt-6 text-3xl font-bold tracking-tight text-white sm:text-4xl">Page introuvable</h1>
+          <p id="error-description" class="mt-4 text-base leading-7 text-white/55 sm:text-lg">La page que vous recherchez n’existe pas ou a été déplacée.</p>
+
+          <div class="mt-9 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
+            <a href="/" class="inline-flex items-center justify-center gap-2 rounded-xl bg-[#EA5B13] px-5 py-3 font-semibold text-white transition hover:bg-[#d45110] focus:outline-none focus:ring-2 focus:ring-[#EA5B13] focus:ring-offset-2 focus:ring-offset-[#111312]">
+              Retour à l’accueil
+              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M4 10H16M10 4L16 10L10 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+            <button type="button" onclick="window.location.reload()" class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/[0.15] px-5 py-3 font-semibold text-white/70 transition hover:border-white/40 hover:bg-white/[0.05] focus:outline-none focus:ring-2 focus:ring-[#EA5B13] focus:ring-offset-2 focus:ring-offset-[#111312]">
+              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M16 7.5A6.5 6.5 0 1 0 16.2 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                <path d="M16 3.5V7.5H12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              Recharger la page
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const errorPages = {
+        400: {
+          title: "Requête invalide",
+          description: "La requête envoyée au serveur ne peut pas être traitée."
+        },
+        403: {
+          title: "Accès refusé",
+          description: "Vous n’avez pas l’autorisation d’accéder à cette ressource."
+        },
+        404: {
+          title: "Page introuvable",
+          description: "La page que vous recherchez n’existe pas ou a été déplacée."
+        },
+        500: {
+          title: "Erreur interne",
+          description: "Une erreur inattendue s’est produite sur le serveur."
+        },
+        502: {
+          title: "Passerelle incorrecte",
+          description: "Le serveur a reçu une réponse invalide depuis un serveur en amont."
+        },
+        503: {
+          title: "Service indisponible",
+          description: "Le service est temporairement indisponible. Veuillez réessayer plus tard."
+        }
+      };
+
+      const requestedCode = Number(new URLSearchParams(window.location.search).get("code"));
+      const code = errorPages[requestedCode] ? requestedCode : 404;
+      const error = errorPages[code];
+
+      document.getElementById("error-code").textContent = code;
+      document.getElementById("error-title").textContent = error.title;
+      document.getElementById("error-description").textContent = error.description;
+      document.title = `${code} | ${error.title}`;
+    </script>
+  </body>
+</html>
